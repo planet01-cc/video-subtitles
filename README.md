@@ -53,7 +53,7 @@ skill 是一個資料夾，裡面放著「怎麼上字幕」的說明書和工�
 3. 把下面這句整句複製，貼給 Claude：
 
    ```
-   幫我安裝這個 skill：https://github.com/evetsai0226/video-subtitles ，放到 ~/.claude/skills/video-subtitles/
+   幫我安裝這個 skill：https://github.com/planet01-cc/video-subtitles ，放到 ~/.claude/skills/video-subtitles/
    ```
 
    它要動你的電腦時會跳出確認，按「允許」。
