@@ -12,6 +12,12 @@ if [ "$(uname -s)" != "Darwin" ] || [ "$(uname -m)" != "arm64" ]; then
 fi
 say "✅ Apple 晶片 Mac"
 
+# 剛裝好 Homebrew、還沒設定路徑時，brew 會找不到；先把 Homebrew 的路徑載入再檢查
+if ! command -v brew >/dev/null 2>&1 && [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  say "⚠️ Homebrew 已安裝，但路徑還沒設定。請 Claude 把 eval \"\$(/opt/homebrew/bin/brew shellenv)\" 加進 ~/.zprofile。"
+fi
+
 # 2. ffmpeg：要能燒字幕（ass 濾鏡）；zscale 用來把 iPhone HDR 轉一般色彩，缺了只是 HDR 影片顏色可能偏灰
 if command -v ffmpeg >/dev/null 2>&1; then
   filters=$(ffmpeg -hide_banner -filters 2>/dev/null)
